@@ -329,7 +329,9 @@ export function ProjectDetail({ project: p, onClose }) {
             )}
 
             {p.demo?.video && (
+              p.demo?.video.map((vid, i) =>(
               <video
+                key={i}
                 controls
                 preload="metadata"
                 style={{
@@ -338,11 +340,13 @@ export function ProjectDetail({ project: p, onClose }) {
                   borderRadius: "var(--r)",
                   border: "1px solid var(--border)",
                   display: "block",
+                  marginBottom: "30px"
                 }}
               >
-                <source src={p.demo.video} type="video/mp4" />
+                <source src={vid} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+              ))
             )}
           </section>
         )}
