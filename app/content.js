@@ -30,7 +30,7 @@ export const ME = {
   location: "Washington, D.C",
   email: "cadnaan7067@gmail.com",
   github: "https://github.com/adnanyu",
-  linkedin: "https://linkedin.com/in/adnany",
+  linkedin: "https://linkedin.com/in/adnanyu",
   education: [
     { degree: "M.S. Computer Science", school: "George Washington University", period: "2025 – Present", note: "Distributed Systems & ML Systems" },
     { degree: "B.S. Computer Engineering", school: "Istanbul Arel University", period: "2021 – 2025", note: "GPA: 3.56 / 4.0" },
@@ -98,7 +98,7 @@ export const PROJECTS = [
     id: "Kumbara",
     title: "Kumbara",
     subtitle: "Personal expense analysis app with AI-powered insights",
-    status: "ongoing",
+    status: "completed",
     tags: ["React", "Vite", "TypeScript", "Tailwind", "shadcn/ui", "Express", "SQLite"],
     gradient: "linear-gradient(135deg, #1e3a8a 0%, #0891b2 100%)",
     icon: "💳",
