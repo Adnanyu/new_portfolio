@@ -31,6 +31,7 @@ export const ME = {
   email: "cadnaan7067@gmail.com",
   github: "https://github.com/adnanyu",
   linkedin: "https://linkedin.com/in/adnanyu",
+  resume: "/Adnan_yusuf.pdf",
   education: [
     { degree: "M.S. Computer Science", school: "George Washington University", period: "2025 – Present", note: "Distributed Systems & ML Systems" },
     { degree: "B.S. Computer Engineering", school: "Istanbul Arel University", period: "2021 – 2025", note: "GPA: 3.56 / 4.0" },
@@ -95,7 +96,7 @@ export const ME = {
 
 export const PROJECTS = [
   {
-    id: "Kumbara",
+    id: "kumbara",
     title: "Kumbara",
     subtitle: "Personal expense analysis app with AI-powered insights",
     status: "completed",
@@ -164,7 +165,9 @@ export const PROJECTS = [
     // },
   },
   {
-  id: "Dromos",
+  id: "dromos",
+  // short muted loop shown on the project card (full videos are in demo)
+  preview: { video: "/videos/previews/dromos.mp4", poster: "/videos/previews/dromos.jpg", portrait: true },
   title: "Dromos",
   subtitle: "GPS fitness tracking app with real-time route generation and social features",
   status: "ongoing",
@@ -245,6 +248,8 @@ export const PROJECTS = [
 },
   {
     id: "eco-transcribe",
+    // short muted loop shown on the project card (full videos are in demo)
+    preview: { video: "/videos/previews/eco-transcribe.mp4", poster: "/videos/previews/eco-transcribe.jpg", portrait: true },
     title: "Eco-Transcribe",
     subtitle: "AI-powered audio transcription and knowledge assistant",
     status: "completed",
@@ -313,7 +318,7 @@ export const PROJECTS = [
       "Calendar and meeting platform integrations",
     ],
 
-    github: "https://github.com",
+    github: "https://github.com/Adnanyu/Eco-Transcribe",
     demo: {
       video: ["/videos/project6.mp4"],
       screenshots: [ss8,ss3, ss4,ss2,ss5,ss6,ss7, ss1]
@@ -389,7 +394,247 @@ export const PROJECTS = [
       blurAfter,
     ]
   }
-}
+},
+  {
+    id: "apartment-seeker",
+    // short muted loop shown on the project card (full videos are in demo)
+    preview: { video: "/videos/previews/apartment-seeker.mp4", poster: "/videos/previews/apartment-seeker.jpg" },
+    title: "Apartment Seeker",
+    subtitle: "Full-stack apartment listing platform with real-time chat",
+    status: "completed",
+    tags: ["Node.js", "Express", "MongoDB", "EJS", "Bootstrap", "Socket.io", "Mapbox", "Cloudinary"],
+    gradient: "linear-gradient(135deg, #7c2d12 0%, #c2410c 55%, #f59e0b 100%)",
+    icon: "🏠",
+    description: "A full-stack web app where users can post and search for apartments, browse listings on a map, and chat with post owners in real time.",
+    fullDescription: `Apartment Seeker is a server-rendered web application for finding and listing rental apartments. Landlords and tenants can create posts with photos, price, availability, number of bedrooms, contact details and location, and anyone can browse and filter listings across the city.
+
+    Each listing is geocoded with Mapbox and stored as a GeoJSON point, so posts appear on an interactive cluster map as well as on a dedicated map for each listing. Interested users can open a conversation with a post's owner directly from the listing and chat in real time over Socket.io, with online presence shown for active users.`,
+    technical: [
+      "Express server with an MVC structure: routes, controllers and Mongoose models",
+      "MongoDB data models for users, posts, chats, messages and visitors",
+      "Listings stored with GeoJSON Point geometry and geocoded through the Mapbox SDK",
+      "Cluster map for all listings and a single-listing map on each post page",
+      "Real-time chat rooms with Socket.io, persisting messages to MongoDB and tracking online users",
+      "Image uploads through Multer streamed to Cloudinary, with on-the-fly thumbnail transforms",
+      "Session-based authentication using Passport (local strategy) and passport-local-mongoose",
+      "Server-side validation with Joi schemas and client-side form validation",
+      "Server-rendered views with EJS, ejs-mate layouts and Bootstrap",
+      "Centralised async error handling with a catchAsync wrapper and custom ExpressError class",
+    ],
+    goals: [
+      "Build a complete full-stack app end to end, from data models to UI",
+      "Make it easy to discover apartments by location",
+      "Let renters contact owners without leaving the platform",
+    ],
+    achievements: [
+      "Shipped a deployed app with listing CRUD, saved posts and per-user post pages",
+      "Integrated maps, image hosting and real-time messaging into one product",
+      "Implemented authentication, authorization middleware and input validation",
+    ],
+    learnings: [
+      "Storing locations as GeoJSON makes map rendering and future geo-queries straightforward",
+      "WebSockets need their own thinking about rooms, presence and persistence alongside the REST app",
+      "Validating on both the client and the server keeps bad data out without hurting the user experience",
+    ],
+    futureWork: [
+      "Search by distance and richer filters using MongoDB geospatial queries",
+      "Read receipts and notifications for new messages",
+      "Migrate the UI to a component-based frontend framework",
+    ],
+    github: "https://github.com/Adnanyu/Apartment-seeker",
+    live: "https://apartment-seeker.adnanbuilds.me",
+    demo: {
+      video: ["/videos/project5.mp4"],
+    },
+  },
+  {
+    id: "setup-spot",
+    // short muted loop shown on the project card (full videos are in demo)
+    preview: { video: "/videos/previews/setup-spot.mp4", poster: "/videos/previews/setup-spot.jpg" },
+    title: "Setup Spot",
+    subtitle: "MERN community for sharing gaming, podcast and streaming setups",
+    status: "completed",
+    tags: ["React", "Redux Toolkit", "Node.js", "Express", "MongoDB", "JWT", "Cloudinary", "Vite"],
+    gradient: "linear-gradient(135deg, #312e81 0%, #6d28d9 55%, #db2777 100%)",
+    icon: "🎮",
+    description: "A MERN stack app where anyone can post their favourite gaming, podcast and streaming setups, with full CRUD support, likes and saved posts.",
+    fullDescription: `Setup Spot is a community platform for showing off desk and studio setups. Users post photos of their gaming, podcasting or streaming setups along with a write-up and links to the gear they use, and other users can browse, like and save the setups they want to come back to.
+
+    The project is split into a React single-page client and an Express REST API. The client manages posts, the current post and the user session with Redux Toolkit, while the API handles authentication, image uploads and all create, read, update and delete operations on posts.`,
+    technical: [
+      "React client built with Vite and React Router, including protected routes for authenticated pages",
+      "Global state managed with Redux Toolkit slices for posts, the selected post and the user",
+      "Express REST API with separate routes and controllers for posts and users",
+      "Token-based authentication with Passport JWT and cookies",
+      "Mongoose models with validation requiring at least one image and one gear link per post",
+      "Likes and saved posts modelled as references to users",
+      "Image uploads with Multer stored on Cloudinary, displayed through a custom image slider",
+      "Request validation with Joi and centralised async error handling",
+    ],
+    goals: [
+      "Build a MERN application with a separated frontend and backend",
+      "Practise state management with Redux Toolkit in a real app",
+      "Create a place for people to share and discover setups",
+    ],
+    achievements: [
+      "Implemented full CRUD for posts with image uploads",
+      "Added authentication, likes and saved posts",
+      "Deployed the client to Netlify",
+    ],
+    learnings: [
+      "Separating the client and API makes each side easier to reason about and deploy",
+      "Redux Toolkit slices keep async data fetching and UI state predictable",
+      "Schema-level validation in Mongoose catches bad data that the UI might miss",
+    ],
+    futureWork: [
+      "Comments and follow relationships between users",
+      "Search and filtering by setup category or gear",
+      "Pagination or infinite scrolling for the feed",
+    ],
+    github: "https://github.com/Adnanyu/setupSpot",
+    live: "https://setup-spot.netlify.app/posts",
+    demo: {
+      video: ["/videos/project4.mp4"],
+    },
+  },
+  {
+    id: "aden-style",
+    // short muted loop shown on the project card (full videos are in demo)
+    preview: { video: "/videos/previews/aden-style.mp4", poster: "/videos/previews/aden-style.jpg" },
+    title: "Aden Style",
+    subtitle: "React e-commerce store with Firebase and Stripe",
+    status: "completed",
+    tags: ["React", "Redux Toolkit", "Firebase", "Stripe", "Sass", "Netlify Functions"],
+    gradient: "linear-gradient(135deg, #0f172a 0%, #334155 55%, #94a3b8 100%)",
+    icon: "🛍️",
+    description: "A complete React e-commerce site with a Firebase backend, Redux Toolkit state management and Stripe payments.",
+    fullDescription: `Aden Style is a clothing store built as a single-page React application. Shoppers can browse product categories, view individual category pages, add items to a cart, and check out with a card payment.
+
+    Firebase provides authentication and the product data, Redux Toolkit manages the user, the categories and the cart, and payments are handled by Stripe through a Netlify serverless function that creates the payment intent.`,
+    technical: [
+      "React single-page app with React Router routes for home, shop, categories, authentication and checkout",
+      "Redux Toolkit store with slices for the user, categories and cart",
+      "Firebase Authentication for sign-up and sign-in, with product categories stored in Firebase",
+      "Stripe card payments using Stripe Elements on the client",
+      "Netlify serverless function that creates Stripe payment intents",
+      "Reusable components such as the cart dropdown, cart icon, checkout items and form inputs",
+      "Styling with Sass and styled-components",
+    ],
+    goals: [
+      "Build a realistic online store from browsing through to payment",
+      "Learn Firebase as a backend-as-a-service",
+      "Integrate a real payment provider securely",
+    ],
+    achievements: [
+      "Shipped a working storefront with authentication, cart and checkout",
+      "Kept the Stripe secret key on the server by using a serverless function",
+      "Deployed the site on Netlify",
+    ],
+    learnings: [
+      "Serverless functions are a simple way to keep payment secrets off the client",
+      "A normalised Redux store keeps cart logic easy to test and reuse",
+      "Backend-as-a-service tools like Firebase speed up development considerably",
+    ],
+    futureWork: [
+      "Order history and user profiles",
+      "Product search and filtering",
+      "Inventory management through an admin dashboard",
+    ],
+    github: "https://github.com/Adnanyu/new-project1/tree/redux-branch",
+    live: "https://aden-style.netlify.app",
+    demo: {
+      video: ["/videos/aden-style.mp4"],
+    },
+  },
+  {
+    id: "apple-calculator",
+    // short muted loop shown on the project card (full videos are in demo)
+    preview: { video: "/videos/previews/apple-calculator.mp4", poster: "/videos/previews/apple-calculator.jpg" },
+    title: "Apple Calculator Clone",
+    subtitle: "iOS-style calculator driven by a React reducer",
+    status: "completed",
+    tags: ["React", "useReducer", "CSS"],
+    gradient: "linear-gradient(135deg, #1c1917 0%, #44403c 55%, #f97316 100%)",
+    icon: "🧮",
+    description: "A clone of Apple's calculator that uses a React reducer to handle calculations instead of the eval() function.",
+    fullDescription: `A pixel-faithful clone of the iOS calculator built with React. Rather than building an expression string and passing it to eval(), every key press is dispatched as an action to a useReducer state machine that tracks the current number, the previous number and the pending operation.
+
+    This approach avoids the security and correctness problems of eval() and makes edge cases explicit: ignoring repeated leading zeros, preventing a second decimal point, chaining operations, deleting the last digit, and starting a fresh number after a result is shown.`,
+    technical: [
+      "Calculator state handled by a single useReducer reducer",
+      "Explicit actions for adding digits, choosing an operation, deleting, clearing and evaluating",
+      "Chained operations evaluate the pending result before applying the next operator",
+      "Overwrite flag so typing after a result starts a new number",
+      "Reusable number and operation button components",
+      "Styled to match the iOS calculator with the SF UI Text font",
+    ],
+    goals: [
+      "Implement calculator logic without relying on eval()",
+      "Practise modelling UI behaviour as a reducer",
+    ],
+    achievements: [
+      "Built a calculator that handles the common edge cases of the iOS app",
+      "Deployed it on GitHub Pages",
+    ],
+    learnings: [
+      "Reducers make small state machines explicit and easy to follow",
+      "Avoiding eval() forces you to think about every input case",
+    ],
+    futureWork: [
+      "Percentage and sign-toggle keys",
+      "Keyboard input support",
+      "Scientific mode in landscape orientation",
+    ],
+    github: "https://github.com/Adnanyu/calculator",
+    live: "/calculator",
+    demo: {
+      video: ["/videos/calculator.mp4"],
+    },
+  },
+  {
+    id: "weather-app",
+    // short muted loop shown on the project card (full videos are in demo)
+    preview: { video: "/videos/previews/weather-app.mp4", poster: "/videos/previews/weather-app.jpg" },
+    title: "Weather App",
+    subtitle: "React weather forecast app powered by WeatherAPI",
+    status: "completed",
+    tags: ["React", "WeatherAPI", "CSS"],
+    gradient: "linear-gradient(135deg, #0c4a6e 0%, #0284c7 55%, #7dd3fc 100%)",
+    icon: "⛅",
+    description: "A React weather app that uses WeatherAPI to show current conditions with hourly and weekly forecasts for any city.",
+    fullDescription: `A weather app inspired by the iOS Weather app. Users search for any city to see current conditions, an hourly forecast and a seven-day outlook, all fetched from WeatherAPI.
+
+    The interface switches between day and night styling based on whether it is currently daytime in the selected location, and includes a toggle for switching the units used in the display.`,
+    technical: [
+      "React app built from search, current conditions, hourly forecast and weekly forecast components",
+      "Fetches current weather and a 7-day forecast from the WeatherAPI forecast endpoint",
+      "Day and night themes driven by the API's is_day flag",
+      "Unit toggle that changes the values displayed across all components",
+      "City search with input normalisation before querying the API",
+    ],
+    goals: [
+      "Practise working with a third-party REST API in React",
+      "Recreate the look and feel of a familiar native app",
+    ],
+    achievements: [
+      "Built a responsive forecast app for any city",
+      "Deployed it on GitHub Pages",
+    ],
+    learnings: [
+      "Splitting the UI into small components that share one API response keeps rendering simple",
+      "API keys used in client-side code are visible to everyone and belong behind a server",
+    ],
+    futureWork: [
+      "Detect the user's location automatically",
+      "Move the API key behind a small backend proxy",
+      "Handle errors for unknown cities and show loading states",
+    ],
+    github: "https://github.com/Adnanyu/weather-app",
+    live: "/weather-app",
+    demo: {
+      video: ["/videos/weather-app.mp4"],
+    },
+  },
 ];
 
 export const JOURNAL = [

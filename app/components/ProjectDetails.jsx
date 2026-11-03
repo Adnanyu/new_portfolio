@@ -98,7 +98,7 @@ export function ProjectDetail({ project: p, onClose }) {
                 fontFamily: "var(--mono)",
               }}
             >
-              // architecture diagram
+              {"// architecture diagram"}
             </div>
 
             <div className="terminal">
@@ -115,7 +115,7 @@ export function ProjectDetail({ project: p, onClose }) {
         )}
 
         {/* Data Flow */}
-        {(p.dataFlow?.length || p.dataFlowDiagram) && (
+        {(p.dataFlow?.length > 0 || p.dataFlowDiagram) && (
           <section className="det-section">
             <span className="label">Data flow</span>
             <div className="divider-line" />
@@ -130,7 +130,7 @@ export function ProjectDetail({ project: p, onClose }) {
                     fontFamily: "var(--mono)",
                   }}
                 >
-                  // data flow diagram
+                  {"// data flow diagram"}
                 </div>
 
                 <div
@@ -149,7 +149,7 @@ export function ProjectDetail({ project: p, onClose }) {
               </>
             )}
 
-            {p.dataFlow?.length && (
+            {p.dataFlow?.length > 0 && (
               <div
                 style={{
                   display: "flex",
@@ -219,7 +219,7 @@ export function ProjectDetail({ project: p, onClose }) {
                     fontFamily: "var(--mono)",
                   }}
                 >
-                  // database diagram
+                  {"// database diagram"}
                 </div>
 
                 <div
@@ -389,7 +389,7 @@ export function ProjectDetail({ project: p, onClose }) {
 
         {/* Future Work */}
         <section className="det-section">
-          <span className="label">What's next</span>
+          <span className="label">What&apos;s next</span>
           <div className="divider-line" />
           {p.futureWork.map((f, i) => <div key={i} className="list-arrow">{f}</div>)}
         </section>

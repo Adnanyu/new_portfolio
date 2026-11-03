@@ -7,7 +7,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export default function Carousel({ images }) {
-  console.log(images)
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -19,8 +18,6 @@ export default function Carousel({ images }) {
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       style={{ width: "100%" }}
-      onSlideChange={() => console. log('slide change')} 
-      onSwiper={ (swiper) => console.log (swiper)}
       autoplay={{
         delay: 3000,
         disableOnInteraction: false,

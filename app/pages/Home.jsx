@@ -1,10 +1,11 @@
 "use client";
-import { MapPin, Mail,ChevronRight,  } from "lucide-react";
+import { MapPin, Mail,ChevronRight, FileText } from "lucide-react";
+import Link from "next/link";
 import { LuGithub } from "react-icons/lu";
 import { ME, EXPERIENCE } from "../content"
 import { LuLinkedin } from "react-icons/lu";
 
-export function HomePage({ setPage }) {
+export function HomePage() {
   return (
     <div style={{ paddingBottom: 80 }}>
       {/* HERO */}
@@ -16,7 +17,7 @@ export function HomePage({ setPage }) {
             letterSpacing: "-0.02em", fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
             marginTop: 14, marginBottom: 22,
           }}>
-            Hello, I'm<br />
+            Hello, I&apos;m<br />
             <em style={{ color: "var(--accent)" }}>{ME.name}</em>
           </h1>
           <p className="fade-up d2" style={{ fontSize: "1.05rem", color: "var(--muted)", maxWidth: 500, lineHeight: 1.65, marginBottom: 36 }}>
@@ -32,6 +33,9 @@ export function HomePage({ setPage }) {
             <a href={ME.linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
               <LuLinkedin  size={13} /> LinkedIn
             </a>
+            <Link href="/resume" className="btn btn-ghost">
+              <FileText size={13} /> Resume
+            </Link>
           </div>
           <div className="fade-up d4" style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 28, color: "var(--muted)", fontSize: "0.82rem" }}>
             <MapPin size={13} />
@@ -192,14 +196,14 @@ export function HomePage({ setPage }) {
       <section style={{ padding: "72px 0" }}>
         <div className="cw" style={{ textAlign: "center" }}>
           <h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 600, marginBottom: 12 }}>
-            Want to see what I've built?
+            Want to see what I&apos;ve built?
           </h2>
           <p style={{ color: "var(--muted)", marginBottom: 28, fontSize: "0.92rem" }}>
             Projects ranging from distributed systems to AI-powered tools — each one a story about a problem worth solving.
           </p>
-          <button onClick={() => setPage("projects")} className="btn btn-dark" style={{ fontSize: "0.88rem", padding: "11px 26px" }}>
+          <Link href="/projects" className="btn btn-dark" style={{ fontSize: "0.88rem", padding: "11px 26px" }}>
             View projects <ChevronRight size={14} />
-          </button>
+          </Link>
         </div>
       </section>
     </div>

@@ -1,44 +1,51 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Moon, Menu, Sun,  BookOpen, Folder, User} from "lucide-react";
 import { ME } from '../content';
 
-export function Nav({ page, setPage, theme, toggleTheme }) {
+export function Nav({ theme, toggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const tabs = [
-    { id: "home", label: "About", Icon: User },
-    { id: "projects", label: "Projects", Icon: Folder },
-    { id: "journal", label: "Journal", Icon: BookOpen },
-  ];
+    { id: "home", href: "/", label: "About", Icon: User },
+    { id: "projects", href: "/projects", label: "Projects", Icon: Folder },
+    // hidden for now — set to false to bring the Journal tab back
+    { id: "journal", href: "/journal", label: "Journal", Icon: BookOpen, hidden: true },
+  ].filter((t) => !t.hidden);
 
-  const handleNavClick = (id) => {
-    setPage(id);
-    setMenuOpen(false);
-  };
+  // a tab stays active on its sub-pages, e.g. /projects/dromos
+  const isActive = (href) =>
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <nav className="nav">
       {/* LOGO */}
-      <span
+      <Link
+        href="/"
         className="nav-logo"
-        onClick={() => handleNavClick("home")}
+        onClick={closeMenu}
       >
         {ME.name}
-      </span>
+      </Link>
 
       {/* DESKTOP NAV */}
       <ul className="nav-links desktop-nav">
-        {tabs.map(({ id, label, Icon }) => (
+        {tabs.map(({ id, href, label, Icon }) => (
           <li key={id}>
-            <button
-              className={`nav-btn${page === id ? " active" : ""}`}
-              onClick={() => handleNavClick(id)}
+            <Link
+              href={href}
+              className={`nav-btn${isActive(href) ? " active" : ""}`}
+              onClick={closeMenu}
             >
               <Icon size={13} />
               {label}
-            </button>
+            </Link>
           </li>
         ))}
       </ul>
@@ -77,17 +84,18 @@ export function Nav({ page, setPage, theme, toggleTheme }) {
       {/* MOBILE MENU */}
       {menuOpen && (
         <div className="mobile-menu">
-          {tabs.map(({ id, label, Icon }) => (
-            <button
+          {tabs.map(({ id, href, label, Icon }) => (
+            <Link
               key={id}
+              href={href}
               className={`mobile-nav-btn${
-                page === id ? " active" : ""
+                isActive(href) ? " active" : ""
               }`}
-              onClick={() => handleNavClick(id)}
+              onClick={closeMenu}
             >
               <Icon size={16} />
               {label}
-            </button>
+            </Link>
           ))}
         </div>
       )}
